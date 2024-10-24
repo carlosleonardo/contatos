@@ -1,3 +1,23 @@
 <div class="container-fluid">
   <h4>Adicionar Contato</h4>
+  <form [formGroup]="formAdicionarContato">
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input type="text" class="form-control" formControlName="nome" />
+      <label for="telefone">Telefone</label>
+      <input type="text" class="form-control" formControlName="telefone" />
+      <label for="email">Email</label>
+      <input type="text" class="form-control" formControlName="email" />
+      <label for="endereco">Endereço</label>
+      <input type="text" class="form-control" formControlName="endereco" />
+      <label for="observacao">Observação</label>
+      <textarea id="observacao" class="form-control"></textarea>
+      <label for="dataNascimento">Data de Nascimento</label>
+      <input
+        type="date"
+        class="form-control"
+        formControlName="dataNascimento"
+      />
+    </div>
+  </form>
 </div>
