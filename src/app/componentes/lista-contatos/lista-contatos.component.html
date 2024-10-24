@@ -1,1 +1,8 @@
-<p>lista-contatos works!</p>
+<h3>Lista de Contatos</h3>
+<div class="row">
+  @for (contato of (contatos$ | async); track contato.id) {
+  <app-contato [contato]="contato"></app-contato>
+  } @empty {
+  <p>Nenhum contato encontrado</p>
+  }
+</div>

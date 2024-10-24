@@ -1,1 +1,16 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <a
+    routerLink="/"
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="active"
+    class="navbar-link navbar-brand"
+    >Página Inicial</a
+  >
+  <a
+    routerLink="lista-contatos"
+    routerLinkActive="active"
+    class="navbar-link navbar-brand"
+    >Contatos</a
+  >
+</nav>
 <router-outlet />
