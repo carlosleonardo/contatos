@@ -1,5 +1,6 @@
 <h3>Lista de Contatos</h3>
-<div class="row">
+<div class="container-fluid">
+  <button type="button" class="btn btn-primary">Adicionar Contato</button>
   @for (contato of (contatos$ | async); track contato.id) {
   <app-contato [contato]="contato"></app-contato>
   } @empty {
