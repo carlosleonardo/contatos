@@ -1,0 +1,8 @@
+{
+  "/contatos": {
+    "target": "http://localhost:5134",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

@@ -1,6 +1,11 @@
 <h3>Lista de Contatos</h3>
+<ng-template #content>
+  <app-adicionar-contato></app-adicionar-contato>
+</ng-template>
 <div class="container-fluid">
-  <button type="button" class="btn btn-primary">Adicionar Contato</button>
+  <button type="button" class="btn btn-primary" (click)="adicionarContato()">
+    Adicionar Contato
+  </button>
   @for (contato of (contatos$ | async); track contato.id) {
   <app-contato [contato]="contato"></app-contato>
   } @empty {
