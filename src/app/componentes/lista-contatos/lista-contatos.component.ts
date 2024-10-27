@@ -6,6 +6,7 @@ import { AsyncPipe } from '@angular/common';
 import { ContatoComponent } from '../contato/contato.component';
 import { AdicionarContatoComponent } from '../adicionar-contato/adicionar-contato.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-lista-contatos',
@@ -35,15 +36,21 @@ export class ListaContatosComponent implements OnInit {
         this.contatosService
           .adicionarContato(contato)
           .pipe(tap((contato) => console.log(contato)))
-          .subscribe();
+          .subscribe((contato) => {
+            this.contatos.update((contatos) =>
+              contatos ? [...contatos, contato] : [contato]
+            );
+          });
       }
     });
   }
-  contatos$!: Observable<Contato[]>;
+  contatos = signal<Contato[] | undefined>([]);
   private contatosService = inject(ContatosService);
   mostrar = signal(false);
 
   ngOnInit(): void {
-    this.contatos$ = this.contatosService.obterTodosContatos();
+    this.contatosService.obterTodosContatos().subscribe((contatos) => {
+      this.contatos.set(contatos);
+    });
   }
 }

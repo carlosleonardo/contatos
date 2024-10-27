@@ -6,7 +6,7 @@
   <button type="button" class="btn btn-primary" (click)="adicionarContato()">
     Adicionar Contato
   </button>
-  @for (contato of (contatos$ | async); track contato.id) {
+  @for (contato of contatos(); track contato.id) {
   <app-contato [contato]="contato"></app-contato>
   } @empty {
   <p>Nenhum contato encontrado</p>
