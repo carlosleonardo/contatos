@@ -1,5 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Contato } from '../../modelo/contato';
 import { ContatosService } from '../../servicos/contatos.service';
 import { AsyncPipe } from '@angular/common';
@@ -32,7 +32,10 @@ export class ListaContatosComponent implements OnInit {
     });
     ref.closed.subscribe((contato: Contato) => {
       if (contato) {
-        this.contatosService.adicionarContato(contato);
+        this.contatosService
+          .adicionarContato(contato)
+          .pipe(tap((contato) => console.log(contato)))
+          .subscribe();
       }
     });
   }
