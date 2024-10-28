@@ -14,7 +14,7 @@ export class AdicionarContatoComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
   formAdicionarContato = this.formBuilder.group({
     nome: ['', [Validators.required]],
-    telefone: [''],
+    telefone: ['', [Validators.required]],
     email: ['', [Validators.email]],
     endereco: [''],
     dataNascimento: [''],
