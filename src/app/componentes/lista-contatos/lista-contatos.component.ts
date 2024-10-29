@@ -16,6 +16,11 @@ import { toSignal } from '@angular/core/rxjs-interop';
   styleUrl: './lista-contatos.component.css',
 })
 export class ListaContatosComponent implements OnInit {
+  aoExcluirContato(contatoExcluido: Contato) {
+    this.contatos.update((contatos) =>
+      contatos?.filter((contato) => contato !== contatoExcluido)
+    );
+  }
   private servicoModal = inject(NgbModal);
 
   adicionarContato() {
