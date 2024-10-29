@@ -5,13 +5,17 @@
   <div class="card-body">
     <div class="row">
       <label for="telefone" class="col-md-4">Telefone:</label>
-      <span class="col-md-4">{{ contato()?.telefone }}</span>
+      <span class="col-md-8">{{ contato()?.telefone }}</span>
     </div>
     <div class="row">
-      <div class="col-md-3">
+      <label for="email" class="col-md-4">E-mail:</label>
+      <span class="col-md-8">{{ contato()?.email }}</span>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
         <button type="button" class="btn btn-primary mt-2">Editar</button>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         <button
           type="button"
           class="btn btn-danger mt-2"
