@@ -2,18 +2,23 @@
 <ng-template #content>
   <app-adicionar-contato></app-adicionar-contato>
 </ng-template>
-<div class="container-fluid">
-  <button type="button" class="btn btn-primary" (click)="adicionarContato()">
+<div class="container">
+  <button
+    type="button"
+    class="btn btn-primary mb-3"
+    (click)="adicionarContato()"
+  >
     Adicionar Contato
   </button>
-  <div class="row">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
     @for (contato of contatos(); track contato.id) {
-    <app-contato
-      [contato]="contato"
-      (aoExcluirContato)="aoExcluirContato(contato)"
-      (aoEditarContato)="aoEditarContato($event)"
-      class="col-sm-4 m-2"
-    ></app-contato>
+    <div class="col">
+      <app-contato
+        [contato]="contato"
+        (aoExcluirContato)="aoExcluirContato(contato)"
+        (aoEditarContato)="aoEditarContato($event)"
+      ></app-contato>
+    </div>
     } @empty {
     <p>Nenhum contato encontrado</p>
     }

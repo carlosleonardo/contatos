@@ -6,7 +6,6 @@ import { AsyncPipe } from '@angular/common';
 import { ContatoComponent } from '../contato/contato.component';
 import { AdicionarContatoComponent } from '../adicionar-contato/adicionar-contato.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-lista-contatos',
