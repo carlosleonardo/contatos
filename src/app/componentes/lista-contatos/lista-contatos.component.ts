@@ -21,6 +21,15 @@ export class ListaContatosComponent implements OnInit {
       contatos?.filter((contato) => contato !== contatoExcluido)
     );
   }
+
+  aoEditarContato(contatoEditado: Contato) {
+    this.contatos.update((contatos) =>
+      contatos?.map((contato) =>
+        contato.id === contatoEditado.id ? contatoEditado : contato
+      )
+    );
+  }
+
   private servicoModal = inject(NgbModal);
 
   adicionarContato() {

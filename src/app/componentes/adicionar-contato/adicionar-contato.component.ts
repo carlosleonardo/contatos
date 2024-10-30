@@ -45,13 +45,19 @@ export class AdicionarContatoComponent implements OnInit {
     this.modal.close(this.contato());
   }
   ngOnInit(): void {
-    this.formAdicionarContato.value.nome = this.contato().nome;
-    this.formAdicionarContato.value.telefone = this.contato().telefone;
-    this.formAdicionarContato.value.email = this.contato().email;
-    this.formAdicionarContato.value.endereco = this.contato().endereco;
-    this.formAdicionarContato.value.dataNascimento = this.contato()
-      .dataNascimento.toISOString()
-      .split('T')[0];
-    this.formAdicionarContato.value.observacao = this.contato().observacao;
+    // Check if dataNascimento exists before calling toISOString()
+    const formattedDate =
+      this.contato().dataNascimento instanceof Date
+        ? this.contato().dataNascimento.toISOString().split('T')[0]
+        : new Date().toISOString().split('T')[0];
+
+    this.formAdicionarContato.patchValue({
+      nome: this.contato().nome || '',
+      telefone: this.contato().telefone || '',
+      email: this.contato().email || '',
+      endereco: this.contato().endereco || '',
+      dataNascimento: formattedDate,
+      observacao: this.contato().observacao || '',
+    });
   }
 }
