@@ -3,6 +3,7 @@ import { Contato } from '../../modelo/contato';
 import { ContatosService } from '../../servicos/contatos.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AdicionarContatoComponent } from '../adicionar-contato/adicionar-contato.component';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-contato',
@@ -26,16 +27,24 @@ export class ContatoComponent {
   editarContato(contato: Contato | undefined) {
     if (!contato) return;
     if (!contato.id) return;
+    let idAtual = contato.id;
     const ref = this.servicoModal.open(AdicionarContatoComponent, {
       backdrop: 'static',
     });
     ref.componentInstance.editando.set(true);
     ref.componentInstance.contato.set(contato);
-    ref.closed.subscribe((contato: Contato) => {
-      if (contato) {
+    ref.closed.subscribe((contatoEditado: Contato) => {
+      if (contatoEditado) {
+        contatoEditado.id = idAtual;
         this.contatosServico
-          .atualizarContato(contato)
-          .subscribe((contato) => this.aoEditarContato.emit(contato));
+          .atualizarContato(contatoEditado)
+          .pipe(
+            tap((contato) => console.log('Contato pelo pipe ', contatoEditado))
+          )
+          .subscribe((contato) => {
+            //console.log('Contado enviado via emit: ', contatoEditado);
+            this.aoEditarContato.emit(contatoEditado);
+          });
       }
     });
   }

@@ -23,11 +23,13 @@ export class ListaContatosComponent implements OnInit {
   }
 
   aoEditarContato(contatoEditado: Contato) {
+    //console.log('Contato editado: ', contatoEditado);
     this.contatos.update((contatos) =>
       contatos?.map((contato) =>
         contato.id === contatoEditado.id ? contatoEditado : contato
       )
     );
+    //console.log('Contatos-evento recebido ', this.contatos());
   }
 
   private servicoModal = inject(NgbModal);

@@ -41,7 +41,7 @@ export class AdicionarContatoComponent implements OnInit {
       dataNascimento: new Date(formattedDate),
       observacao: this.formAdicionarContato.value.observacao as string,
     });
-    //alert(this.contato().dataNascimento);
+    console.log('Modal fechado: ', this.contato());
     this.modal.close(this.contato());
   }
   ngOnInit(): void {

@@ -11,6 +11,7 @@
     <app-contato
       [contato]="contato"
       (aoExcluirContato)="aoExcluirContato(contato)"
+      (aoEditarContato)="aoEditarContato($event)"
       class="col-sm-4 m-2"
     ></app-contato>
     } @empty {
