@@ -41,7 +41,7 @@ export class AdicionarContatoComponent implements OnInit {
       dataNascimento: new Date(formattedDate),
       observacao: this.formAdicionarContato.value.observacao as string,
     });
-    console.log('Modal fechado: ', this.contato());
+    //console.log('Modal fechado: ', this.contato());
     this.modal.close(this.contato());
   }
   ngOnInit(): void {
@@ -49,7 +49,7 @@ export class AdicionarContatoComponent implements OnInit {
     const formattedDate =
       this.contato().dataNascimento instanceof Date
         ? this.contato().dataNascimento.toISOString().split('T')[0]
-        : new Date().toISOString().split('T')[0];
+        : new Date(this.contato().dataNascimento).toISOString().split('T')[0];
 
     this.formAdicionarContato.patchValue({
       nome: this.contato().nome || '',
