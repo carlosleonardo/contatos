@@ -20,6 +20,7 @@ export class ContatoComponent {
 
   excluirContato(id: number | undefined) {
     if (!id) return;
+    if (!confirm('Tem certeza de que quer excluir o contato?')) return;
     this.contatosServico
       .excluirContato(id)
       .subscribe((contato) => this.aoExcluirContato.emit(contato));
