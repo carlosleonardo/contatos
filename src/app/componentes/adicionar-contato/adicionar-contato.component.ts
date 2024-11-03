@@ -15,7 +15,7 @@ export class AdicionarContatoComponent implements OnInit {
   formAdicionarContato = this.formBuilder.group({
     nome: ['', [Validators.required]],
     telefone: ['', [Validators.required]],
-    email: ['', [Validators.email]],
+    email: ['', [Validators.email, Validators.required]],
     endereco: [''],
     dataNascimento: [''],
     observacao: [''],
