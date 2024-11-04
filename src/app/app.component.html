@@ -12,5 +12,35 @@
     class="navbar-link navbar-brand"
     >Contatos</a
   >
+  <div class="btn-group ms-auto">
+    <div
+      class="btn-group"
+      ngbDropdown
+      role="group"
+      aria-label="Menu tema escuro ou claro"
+    >
+      <button type="button" class="btn btn-primary" ngbDropdownToggle>
+        Tema
+      </button>
+      <div class="dropdown-menu" ngbDropdownMenu>
+        <button
+          class="btn btn-primary"
+          ngbDropdownItem
+          (click)="mudarTema('light')"
+        >
+          <img src="sun.svg" alt="Modo Claro" />
+          Claro
+        </button>
+        <button
+          ngbDropdownItem
+          class="btn btn-primary"
+          (click)="mudarTema('dark')"
+        >
+          <img src="moon.svg" alt="Modo Escuro" />
+          Escuro
+        </button>
+      </div>
+    </div>
+  </div>
 </nav>
 <router-outlet />
