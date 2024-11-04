@@ -4,11 +4,12 @@ import { ContatosService } from '../../servicos/contatos.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AdicionarContatoComponent } from '../adicionar-contato/adicionar-contato.component';
 import { tap } from 'rxjs';
+import { NgxMaskPipe } from 'ngx-mask';
 
 @Component({
   selector: 'app-contato',
   standalone: true,
-  imports: [],
+  imports: [NgxMaskPipe],
   templateUrl: './contato.component.html',
   styleUrl: './contato.component.css',
 })

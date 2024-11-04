@@ -2,10 +2,11 @@ import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Contato } from '../../modelo/contato';
+import { NgxMaskDirective } from 'ngx-mask';
 @Component({
   selector: 'app-adicionar-contato',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgxMaskDirective],
   templateUrl: './adicionar-contato.component.html',
   styleUrl: './adicionar-contato.component.css',
 })
