@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { TrocarTemaService } from './servicos/trocar-tema.service';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
@@ -13,7 +13,19 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 export class AppComponent {
   mudarTema(tema: string) {
     this.servicoTrocarTema.trocarTema(tema);
+    sessionStorage.setItem('tema', tema);
+    if (tema === 'dark') {
+      this.modoEscuro.set('moon-fill.svg');
+      this.modoClaro.set('sun-fill.svg');
+    } else {
+      this.modoEscuro.set('moon.svg');
+      this.modoClaro.set('sun.svg');
+    }
   }
+
+  modoEscuro = signal('moon-fill.svg');
+  modoClaro = signal('sun-fill.svg');
+
   servicoTrocarTema = inject(TrocarTemaService);
   temaEscolhido = window.matchMedia('(prefers-color-scheme: dark)').matches
     ? 'dark'

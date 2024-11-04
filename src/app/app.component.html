@@ -24,19 +24,19 @@
       </button>
       <div class="dropdown-menu" ngbDropdownMenu>
         <button
-          class="btn btn-primary"
+          class="btn btn-primary text-bg-light"
           ngbDropdownItem
           (click)="mudarTema('light')"
         >
-          <img src="sun.svg" alt="Modo Claro" />
+          <img [src]="modoClaro()" alt="Modo Claro" />
           Claro
         </button>
         <button
           ngbDropdownItem
-          class="btn btn-primary"
+          class="btn btn-primary text-bg-light"
           (click)="mudarTema('dark')"
         >
-          <img src="moon.svg" alt="Modo Escuro" />
+          <img [src]="modoEscuro()" alt="Modo Escuro" />
           Escuro
         </button>
       </div>
