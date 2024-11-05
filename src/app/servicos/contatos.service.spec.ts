@@ -46,7 +46,7 @@ describe('ContatosService', () => {
     });
 
     const req = httpMock.expectOne({
-      url: 'http://localhost:5143/contatos',
+      url: 'http://localhost:5134/contatos',
       method: 'POST',
     });
 
@@ -79,7 +79,7 @@ describe('ContatosService', () => {
     });
 
     const req = httpMock.expectOne({
-      url: 'http://localhost:5143/contatos',
+      url: 'http://localhost:5134/contatos',
       method: 'GET',
     });
     req.flush({ data: contatos });
@@ -99,7 +99,7 @@ describe('ContatosService', () => {
       expect(contato).toEqual(contato);
     });
     const req = httpMock.expectOne({
-      url: 'http://localhost:5143/contatos/1',
+      url: 'http://localhost:5134/contatos/1',
       method: 'GET',
     });
     req.flush({ data: contato });
@@ -119,7 +119,7 @@ describe('ContatosService', () => {
       expect(contato).toEqual(contato);
     });
     const req = httpMock.expectOne({
-      url: 'http://localhost:5143/contatos/1',
+      url: 'http://localhost:5134/contatos/1',
       method: 'PUT',
     });
     req.flush({ data: contato });
@@ -139,7 +139,7 @@ describe('ContatosService', () => {
       expect(contato).toEqual(contato);
     });
     const req = httpMock.expectOne({
-      url: 'http://localhost:5143/contatos/1',
+      url: 'http://localhost:5134/contatos/1',
       method: 'DELETE',
     });
     req.flush({ data: contato });
