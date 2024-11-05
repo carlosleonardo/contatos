@@ -1,3 +1,9 @@
 .active {
   border-bottom: 2px solid red;
 }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
