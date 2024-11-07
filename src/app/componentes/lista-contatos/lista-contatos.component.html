@@ -3,6 +3,7 @@
   <app-adicionar-contato></app-adicionar-contato>
 </ng-template>
 <div class="container-fluid">
+  <app-buscador (aoBuscar)="buscarContato($event)" />
   <button
     type="button"
     class="btn btn-primary mb-3"
@@ -23,4 +24,5 @@
     <p>Nenhum contato encontrado</p>
     }
   </div>
+  <span class="text-muted">Total de contatos: {{ totalContatos() }}</span>
 </div>
