@@ -9,16 +9,14 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BuscadorComponent } from '../buscador/buscador.component';
 
 @Component({
-  selector: 'app-lista-contatos',
-  standalone: true,
-  imports: [
-    AsyncPipe,
-    ContatoComponent,
-    AdicionarContatoComponent,
-    BuscadorComponent,
-  ],
-  templateUrl: './lista-contatos.component.html',
-  styleUrl: './lista-contatos.component.css',
+    selector: 'app-lista-contatos',
+    imports: [
+        ContatoComponent,
+        AdicionarContatoComponent,
+        BuscadorComponent,
+    ],
+    templateUrl: './lista-contatos.component.html',
+    styleUrl: './lista-contatos.component.css'
 })
 export class ListaContatosComponent implements OnInit {
   buscarContato(texto: string) {

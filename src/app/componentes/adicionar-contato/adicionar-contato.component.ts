@@ -4,11 +4,10 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Contato } from '../../modelo/contato';
 import { NgxMaskDirective } from 'ngx-mask';
 @Component({
-  selector: 'app-adicionar-contato',
-  standalone: true,
-  imports: [ReactiveFormsModule, NgxMaskDirective],
-  templateUrl: './adicionar-contato.component.html',
-  styleUrl: './adicionar-contato.component.css',
+    selector: 'app-adicionar-contato',
+    imports: [ReactiveFormsModule, NgxMaskDirective],
+    templateUrl: './adicionar-contato.component.html',
+    styleUrl: './adicionar-contato.component.css'
 })
 export class AdicionarContatoComponent implements OnInit {
   private modal = inject(NgbActiveModal);

@@ -2,11 +2,10 @@ import { Component, inject, output, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-buscador',
-  standalone: true,
-  imports: [ReactiveFormsModule],
-  templateUrl: './buscador.component.html',
-  styleUrl: './buscador.component.css',
+    selector: 'app-buscador',
+    imports: [ReactiveFormsModule],
+    templateUrl: './buscador.component.html',
+    styleUrl: './buscador.component.css'
 })
 export class BuscadorComponent {
   private fb = inject(FormBuilder);

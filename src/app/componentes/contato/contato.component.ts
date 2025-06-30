@@ -7,11 +7,10 @@ import { tap } from 'rxjs';
 import { NgxMaskPipe } from 'ngx-mask';
 
 @Component({
-  selector: 'app-contato',
-  standalone: true,
-  imports: [NgxMaskPipe],
-  templateUrl: './contato.component.html',
-  styleUrl: './contato.component.css',
+    selector: 'app-contato',
+    imports: [NgxMaskPipe],
+    templateUrl: './contato.component.html',
+    styleUrl: './contato.component.css'
 })
 export class ContatoComponent {
   contatosServico = inject(ContatosService);
